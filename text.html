@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="St. Francis De Sales English Medium School, Madkhol-Dhavadki - A premier educational institution fostering excellence and holistic development.">
+  <meta name="theme-color" content="#0056D2">
+  <title>St. Francis De Sales School | Excellence in Education</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- CSS Variables ---------- */
+    :root {
+      --primary: #0056D2;
+      --primary-dark: #0040a3;
+      --secondary: #ffffff;
+      --accent: #e6f0ff;
+      --gray-light: #f8fafc;
+      --gray: #64748b;
+      --dark: #0f172a;
+      --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--secondary);
+      color: var(--dark);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* section spacing */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      color: var(--primary);
+      position: relative;
+    }
+    .section-sub {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      margin: 12px auto 32px;
+      border-radius: 4px;
+    }
+
+    /* sticky navbar */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    /* top bar */
+    .top-bar {
+      background: var(--primary);
+      color: white;
+      padding: 10px 0;
+      font-size: 0.9rem;
+    }
+    .top-bar .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .top-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .top-info span i {
+      margin-right: 8px;
+    }
+    .timing i {
+      margin-right: 6px;
+    }
+
+    /* navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .logo h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .logo p {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      color: var(--gray);
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .hero-content .motto {
+      font-size: 1.3rem;
+      font-style: italic;
+      margin-bottom: 32px;
+      opacity: 0.95;
+    }
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-outline {
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Cards & grids */
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+    .grid-3, .grid-4, .grid-2, .facilities-grid, .program-grid {
+      display: grid;
+      gap: 30px;
+    }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    
+    /* about */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-stats {
+      background: var(--accent);
+      border-radius: 32px;
+      padding: 32px;
+    }
+    .principal-card {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+      background: var(--gray-light);
+      border-radius: 32px;
+      padding: 32px;
+    }
+    .principal-img {
+      flex: 1;
+      text-align: center;
+    }
+    .principal-img img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow-md);
+      border: 4px solid white;
+    }
+    .principal-msg {
+      flex: 2;
+    }
+
+    /* stats counter */
+    .stats-section {
+      background: linear-gradient(135deg, var(--primary), #003a99);
+      color: white;
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      text-align: center;
+    }
+    .stat-item h3 {
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+
+    /* gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 24px;
+      cursor: pointer;
+      position: relative;
+      aspect-ratio: 1 / 0.9;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.25s;
+    }
+    .lightbox.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    /* reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: all 0.7s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 99;
+      box-shadow: var(--shadow-sm);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+    }
+
+    /* footer */
+    footer {
+      background: #0b1120;
+      color: #cbd5e1;
+      padding: 48px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+    .social-icons i {
+      font-size: 1.5rem;
+      margin-right: 18px;
+      transition: var(--transition);
+      color: white;
+    }
+    .social-icons i:hover {
+      color: var(--primary);
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 85px;
+        left: -100%;
+        background: white;
+        width: 80%;
+        height: calc(100vh - 85px);
+        flex-direction: column;
+        padding: 40px;
+        box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+        transition: 0.3s;
+        gap: 30px;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hamburger {
+        display: block;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      font-family: inherit;
+    }
+    .inquiry-form {
+      background: var(--gray-light);
+      border-radius: 32px;
+      padding: 32px;
+    }
+    .form-row {
+      margin-bottom: 20px;
+    }
+    button[type="submit"] {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Info Bar -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-info">
+      <span><i class="fas fa-phone-alt"></i> +91 98765 43210</span>
+      <span><i class="fas fa-envelope"></i> info@stfrancisschool.edu.in</span>
+    </div>
+    <div class="timing"><i class="far fa-clock"></i> School Timing: 8:00 AM - 3:00 PM (Mon-Fri)</div>
+  </div>
+</div>
+
+<!-- Navigation Bar Sticky -->
+<div class="sticky-nav" id="navbar">
+  <div class="navbar">
+    <div class="logo">
+      <h2>St. Francis De Sales</h2>
+      <p>Madkhol-Dhavadki | Pune Fransalian Education Society</p>
+    </div>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#academics">Academics</a></li>
+      <li><a href="#facilities">Facilities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>St. Francis De Sales <br> English Medium School</h1>
+    <div class="motto">"Empower, Enlighten, Excel – Shaping Tomorrow's Leaders"</div>
+    <div class="btn-group">
+      <a href="#admissions" class="btn-primary">Admissions Open <i class="fas fa-arrow-right"></i></a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+</html>
